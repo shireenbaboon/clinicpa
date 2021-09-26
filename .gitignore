@@ -1,0 +1,10 @@
+*.pyc
+*~
+__pycache__
+venv
+myvenv
+*.SQLITE3
+/static
+.DS_Store
+.idea
+
