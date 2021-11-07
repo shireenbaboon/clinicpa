@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+<html lang="en">
+{% block content %}
+
+    <html>
+    <head>
+        <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=0,shrink-to-fit=yes">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+        <meta charset="UTF-8">
+        <title>Clinic Management System</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
+    </head>
+    <body>
+    <style>
+        body {
+            background-color: ghostwhite;
+        }
+    </style>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+
+            </div>
+        </div>
+    </div>
+    <div>
+        <table class="table table-striped table-bordered table-hover">
+            <div class="row">
+            <h1 style="padding-left: -40px; font-weight: bold; margin-top:10px"> Prescription Details</h1>
+
+        </div>
+            <thead>
+            <tr class="bg-info">
+                <th>Patient</th>
+                <th>Doctor</th>
+                <th>Symptoms</th>
+                <th>Date</th>
+                <th>Description</th>
+                <th>Pharmacy Address</th>
+                <th>Created Date</th>
+                <th colspan="3">Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for prescription in prescriptions %}
+                <tr>
+                    <td>{{ prescription.patient }}</td>
+                    <td>{{ prescription.doctor }}</td>
+                    <td>{{ prescription.symptoms }}</td>
+                    <td>{{ prescription.date }}</td>
+                    <td>{{ prescription.description }}</td>
+                    <td>{{ prescription.pharmacy_address }}</td>
+                    <td>{{ prescription.created_date}}</td>
+                    <td><a href="{% url 'managements:prescription_edit' pk=prescription.pk %}" class="btn btn-warning">Edit</a>
+
+                    <td><a href="{% url 'managements:prescription_delete' pk=prescription.pk %}"
+       onclick="return confirm('Are you sure you want to delete?')"
+       class="btn btn-danger">Delete</a>
+                    </td>
+                    <td><a href="{% url 'managements:prescription_pdf' pk=prescription.pk %}" class="btn btn-primary btn-lg active ml-2" role="button">  Send PDF</a>
+                    </td>
+                     </tr>
+
+            {% endfor %}
+            </tbody>
+        </table>
+        <a href="{% url 'managements:prescription_new' %}" class="btn btn-primary btn-lg active ml-2" role="button">Add Prescription</a>
+
+    </div>
+    </body>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    </html>
+{% endblock %}
+</html>

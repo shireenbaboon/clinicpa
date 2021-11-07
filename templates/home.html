@@ -4,12 +4,22 @@
 
 {% block content %}
 <div class="jumbotron">
+  <meta name="viewport" content="width=device-width,initial-scale=0.5,shrink-to-fit=no">
   <h1 class="display-4">Clinic Management System</h1>
   <p class="lead">Best Health Care Provider</p>
     <p>World's Best Wealth Is Health</p>
-  <p class="lead">
-       Hello
-  </p>
+  {% if request.user.is_superuser %}
+  <a href="{% url 'managements:doctor_list' %}" class="btn btn-primary btn-lg active ml-2" role="button">Doctors</a>
+  <a href="{% url 'managements:nurse_list' %}" class="btn btn-primary btn-lg active ml-2" role="button">Nurses</a>
+  <a href="{% url 'managements:patient_list' %}" class="btn btn-primary btn-lg active ml-2" role="button">Patients</a>
+  <a href="{% url 'managements:appointment_list' %}" class="btn btn-primary btn-lg active ml-2" role="button">Appointments</a>
+  <a href="{% url 'managements:prescription_list' %}" class="btn btn-primary btn-lg active ml-2" role="button">Prescriptions</a>
+  {% else %}
+  {% if user.is_authenticated %}
+  <a href="{% url 'managements:appointment_list' %}" class="btn btn-primary btn-lg active ml-2" role="button">Appointments</a>
+  <a href="{% url 'managements:prescription_list' %}" class="btn btn-primary btn-lg active ml-2" role="button">Prescriptions</a>
+  {% endif %}
+  {% endif %}
 </div>
 {% endblock content %}
 

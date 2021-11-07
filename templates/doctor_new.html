@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+<html lang="en">
+{% block content %}
+     <meta name="viewport" content="width=device-width,initial-scale=0.5,shrink-to-fit=no">
+    <h1>Add a new Doctor</h1>
+    <form method="POST" class="doctor-form">{% csrf_token %}
+          {{ form.as_p }}
+        <button type="submit" class="save btn btn-default">Save</button>
+    </form>
+{% endblock %}
+</html>

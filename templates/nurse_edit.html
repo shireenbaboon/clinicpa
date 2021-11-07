@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+<html lang="en">
+
+{% block content %}
+ <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+    <h1>Edit Nurse</h1>
+    <form method="POST" class="nurse-form">{% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="save btn btn-default">Update</button>
+    </form>
+{% endblock %}
+</html>

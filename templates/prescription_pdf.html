@@ -1,0 +1,32 @@
+<html>
+ <head>
+     <style>
+ul.no-bullets {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+</style>
+   <h1>Prescription Details</h1>
+   <style>
+     h1 {
+       text-align: center;
+     }
+   </style>
+ </head>
+ <body>
+ <ul class="no-bullets">
+     <li>Patient Name:{{ prescriptions.patient }}</li>
+     <li>Consulting Doctor:{{ prescriptions.doctor }}</li>
+     <li>Date :{{ prescriptions.date }}</li>
+     <li>Instructions :{{prescriptions.description }}</li>
+     <li>Pharmacy Address{{ prescriptions.pharmacy_address }}</li>
+     <li>Prescribed Date :{{ prescriptions.created_date}}</li>
+  <h2>************************************************************************************************</h2>
+
+ </ul>
+
+ </body>
+</html>
+
+</html>

@@ -1,10 +1,15 @@
 from django.contrib import admin
 
-from .models import Doctors, Patients, Prescription, Appointments,Nurses
+from .models import Doctors, Patients, Prescriptions, Appointments, Nurses
+from django.http import HttpResponse
+from django.contrib import admin
+from django.urls import reverse
+from django.utils.safestring import mark_safe
 
 
 class DoctorAdmin(admin.ModelAdmin):
     model = Doctors
+
 
 
 admin.site.register(Doctors, DoctorAdmin)
@@ -18,10 +23,10 @@ admin.site.register(Patients, PatientAdmin)
 
 
 class PrescriptionAdmin(admin.ModelAdmin):
-    model = Prescription
+    model = Prescriptions
 
 
-admin.site.register(Prescription, PrescriptionAdmin)
+admin.site.register(Prescriptions, PrescriptionAdmin)
 
 
 class AppointmentsAdmin(admin.ModelAdmin):
@@ -36,3 +41,13 @@ class NursesAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Nurses, NursesAdmin)
+
+
+def admin_doctor_pdf(obj):
+    url = reverse('managements:admin_doctor_pdf', args=[obj.id])
+    return mark_safe(f'<a href="{url}">PDF</a>')
+
+
+
+
+

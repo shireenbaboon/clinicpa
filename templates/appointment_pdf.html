@@ -1,0 +1,31 @@
+<html>
+ <head>
+     <style>
+ul.no-bullets {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+</style>
+   <h1>Appointment Details</h1>
+   <style>
+     h1 {
+       text-align: center;
+     }
+   </style>
+ </head>
+ <body>
+ <ul class="no-bullets">
+     <li>Patient Name:{{ appointments.patient }}</li>
+     <li>Consulting Doctor:{{ appointments.doctor }}</li>
+     <li>Date :{{ appointments.dates }}</li>
+     <li>Time :{{ appointments.time }}</li>
+     <li>Status :{{appointments.status }}(AP:Approved PD: Pending)</li>
+<h2>******************************************************************************</h2>
+
+ </ul>
+
+ </body>
+</html>
+
+</html>
