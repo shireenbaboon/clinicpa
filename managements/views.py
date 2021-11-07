@@ -1,15 +1,4 @@
-import email
-import io
-from email import message
 
-import canvas as canvas
-from django.core import mail
-from django.shortcuts import render
-from django.utils import timezone
-from reportlab.lib.pagesizes import letter
-from reportlab.lib.units import inch
-import smtplib
-from pdf_mail import sendpdf
 from email.message import EmailMessage
 from io import BytesIO
 
