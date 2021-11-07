@@ -41,7 +41,6 @@ INSTALLED_APPS = [
     'users',
     'crispy_forms',
     'managements',
-    'bootstrap_datepicker_plus',
 
 ]
 
